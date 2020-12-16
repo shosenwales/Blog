@@ -1,0 +1,14 @@
+.blog-post .post-body p:not(.lead){
+    line-height: 1.5em;
+}
+.blog-post .post-body p{
+    margin-bottom: 15px;
+}
+
+.label{
+    background-color: #111;
+    display: flex;
+    border-radius: 50px;
+    height: 26px;
+    width: 50px;
+}
