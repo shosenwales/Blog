@@ -24,21 +24,18 @@ from pathlib import Path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hjfj$t1rm6xwr&*wqh#f7txs+%_^@*#+p3d)8$=igvh%q#0cdo'
+# SECRET_KEY = 'hjfj$t1rm6xwr&*wqh#f7txs+%_^@*#+p3d)8$=igvh%q#0cdo'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['secret-springs-55410.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['personal-django-blog', '127.0.0.1']
 
 
 # Application definition
@@ -96,9 +93,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -138,10 +133,10 @@ USE_TZ = True
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_URL = '/static/'
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Extra places for collectstatic to find static files
 STATICFILES_DIRS = (
