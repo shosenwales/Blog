@@ -16,6 +16,10 @@ import django_heroku
 import os
 from pathlib import Path
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 
 
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'post',
     'newsletter',
     'tinymce',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -183,3 +188,9 @@ TINYMCE_DEFAULT_CONFIG = {
 django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
+
+cloudinary.config(
+    cloud_name = "mallamshuaib",
+    api_key = "152737981124377",
+    api_secret = "gOemWdCKwWfZEZKDo8DDOAKCUWE"
+)
