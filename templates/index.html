@@ -16,8 +16,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            <h2 class="h3">Some great intro here</h2>
-            <p class="text-big">Place a nice <strong>introduction</strong> here <strong>to catch reader's attention</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+            <h2 class="h3">Welcome </h2>
+            <p class="text-big"> <strong>Personal</strong> Cybersecurity<strong>blog</strong>. This is a personal blog were i'll be documenting my cybersecurity journey, and also things around python , django and Hackthebox.</p>
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="/blog" class="hero-link">View More</a>
+            <h2>I hope to post a lot of content soon...</h2><a href="/blog" class="hero-link">View More</a>
           </div>
         </div>
       </div>
@@ -115,12 +115,12 @@
       <div class="container">
         <header> 
           <h2>Latest from the blog</h2>
-          <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <!-- <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
         </header>
         <div class="row">
           {% for obj in latest %}
           <div class="post col-md-4">
-            <div class="post-thumbnail"><a href="#"><img src="{{obj.thumbnail.url}}" alt="..." class="img-fluid"></a></div>
+            <div class="post-thumbnail"><a href="{{obj.get_absolute_url}}"><img src="{{obj.thumbnail.url}}" alt="..." class="img-fluid"></a></div>
             <div class="post-details">
               <div class="post-meta d-flex justify-content-between">
                 <div class="date">{{obj.timestamp}}</div>
@@ -129,7 +129,7 @@
                   <a href="#">{{cat}}</a>
                   {% endfor %}
                 </div>
-              </div><a href="#">
+              </div><a href="{{obj.get_absolute_url}}">
                 <h3 class="h4">{{obj.title}}</h3></a>
               <p class="text-muted">{{obj.overview}}</p>
             </div>
